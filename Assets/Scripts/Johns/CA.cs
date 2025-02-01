@@ -38,10 +38,13 @@ public class CA : MonoBehaviour
         timer = Time.time;
 
 
-        TheBinary = decimal_to_binary(TheRule);
+        TheBinary = int_to_binary(TheRule);
 
         //clear the array
         for (var i = 0; i < 8; i++) ruleset[i] = 0;
+        //use strings to bust the binary and assign to the ruleset
+        //I'm sure there is some groovy way to do this in one line
+        //with math, but I'm too stupid, and this works
         var B = TheBinary.ToString();
 
         var C = B.ToCharArray();
@@ -137,7 +140,7 @@ public class CA : MonoBehaviour
         }
     }
 
-    private int decimal_to_binary(int n)
+    private int int_to_binary(int n)
     {
         var binary = 0;
         int remainder, i; 
