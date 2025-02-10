@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    Animator anim;
+    public Animator anim;
     public FootstepThirdPerson footstep;
     private float volume = 1.0f;
 
@@ -68,8 +68,7 @@ public class PlayerAnimator : MonoBehaviour
     }
     public void TriggerSound()
     {
-        Debug.Log("trigger sound");
-
+        
         if(footstep)
             footstep.PlaySurfaceSound(volume);
     }

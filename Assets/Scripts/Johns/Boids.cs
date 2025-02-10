@@ -146,6 +146,7 @@ public class Boids : MonoBehaviour
 
         steer -= transform.position;
 
+       
         steer.Normalize();
 
 
