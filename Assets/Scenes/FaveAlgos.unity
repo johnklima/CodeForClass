@@ -5252,7 +5252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseObject: {fileID: 5059946722724556780}
   ruleset: 0000000000000000000000000100000001000000010000000100000000000000
-  TheRule: 89
+  TheRule: 30
   TheBinary: 0
   regenerateFormation: 1
 --- !u!1 &1593718979
