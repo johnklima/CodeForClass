@@ -13,10 +13,13 @@ public class CAgrided : MonoBehaviour
     GameObject[,] cellObjs;
     public GameObject baseObject;
 
+    public CAgrided goalGrid;
+
     public int[] ruleset = { 0, 0, 0, 1, 1, 1, 1, 0 }; //rule 30
 
     public int TheRule = 30;
     public int TheBinary;
+    public bool Live = false;
 
     private int generation;
 
@@ -24,6 +27,15 @@ public class CAgrided : MonoBehaviour
 
     //wipe the isActive slate clean, or pass the new rule through the previous rule
     public bool regenerateFormation = true;
+
+    public Vector3 getCellPosition(int _col, int _row)
+    {
+        return cellObjs[_col, _row].transform.position;
+    }
+    public bool  getCellState(int _col, int _row)
+    {
+        return cellObjs[_col, _row].activeInHierarchy;
+    }
 
     private void Reset()
     {
@@ -108,7 +120,8 @@ public class CAgrided : MonoBehaviour
         }
 
         //regenerate on key R (we don't destroy the ladies)
-        if (Input.GetKeyDown(KeyCode.R)) Reset();
+        if (Input.GetKeyDown(KeyCode.R) && Live) 
+            Reset();
 
     }
 
@@ -146,10 +159,28 @@ public class CAgrided : MonoBehaviour
         {
             for (var i = 0; i < cols; i++)
             {
-                if (cells[i] == 1)
-                    cellObjs[i, generation].GetComponent<PlayerAnimator>().Sneak();
-                else
-                    cellObjs[i, generation].GetComponent<PlayerAnimator>().Run();
+               // if (cells[i] == 1)
+               //     cellObjs[i, generation].GetComponent<PlayerAnimator>().Sneak();
+               // else
+                {
+                    GameObject co = cellObjs[i, generation];
+                    //get the state of the goal grid
+                    if(goalGrid )
+                    {
+                        //if the state of the goal grid is On
+                        if(goalGrid.getCellState(i,generation) && co.activeInHierarchy)
+                        {
+                            co.GetComponent<PlayerAnimator>().Run();
+                            co.GetComponent<Navigator>().goalPos = goalGrid.getCellPosition(i, generation);
+                            co.GetComponent<Navigator>().navigate = true;
+
+                        }
+
+                    }
+
+                    
+                }
+                    
             }
 
         }
