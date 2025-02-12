@@ -1,3 +1,6 @@
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,24 +8,27 @@ using UnityEngine;
 public class GOL : MonoBehaviour
 {
 
+    // [SerializeField]  means it's private, but you can muck with it in the inspector
     [SerializeField]  GameObject baseobject;
-    [SerializeField] float interval = 0.5f;
+    [SerializeField]  float interval = 0.5f;
 
-    const int MAX_ROWS = 32;
+    const int MAX_ROWS = 32;        //size of the grid
     const int MAX_COLUMNS = 32;
 
-    //2d array of ints
+    //2d array of ints for cell values
     int[,] cells;
+ 
+    //2d array of gameobjects to show
     GameObject[,] objs;
 
-    float timer = -1;
+    float timer = -1; //the usual interval to see the generations
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = Time.realtimeSinceStartup;
+        timer = Time.realtimeSinceStartup;  //this gives a totally unique value
 
-        Random.InitState(987654321);
+        Random.InitState((int)(timer * 100.0f)); //casts a float to int as a unique seed
 
         //redimension our array
         cells = new int[MAX_ROWS, MAX_COLUMNS];
@@ -50,15 +56,15 @@ public class GOL : MonoBehaviour
                 if (Physics.Raycast(pos, Vector3.down, out hit, 10000, layerMask))
                 {
                                    
-                    float x = objs[row, col].transform.localPosition.x;
+                    float x = objs[row, col].transform.position.x;
                     float y = hit.point.y;
-                    float z = objs[row, col].transform.localPosition.z;
+                    float z = objs[row, col].transform.position.z;
 
-                   
+                   //apply this position to hug a surface
                 }
 
                 //init cells
-                int state =  Random.Range(0, 2);   // here I init more cells live than dead. 
+                int state =  Random.Range(0, 3);   // here I can init more cells live than dead. 
                 if (state >= 1)
                 {
                     objs[row, col].SetActive(true);
