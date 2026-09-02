@@ -66,7 +66,7 @@ public class BeeCollision : MonoBehaviour
         }
 
         //decay it's physics velocity in any case? Yes.
-        body.velocity *= physicsDecay;
+        body.linearVelocity *= physicsDecay;
 
     }
 
@@ -81,7 +81,7 @@ public class BeeCollision : MonoBehaviour
             
         //when we collide, transfer what is essentially the camera velocity
         //into the bee body, and then let the unity physics engine handle a bounce
-        body.velocity = movement.velocity;
+        body.linearVelocity = movement.velocity;
 
         inCollision = true;
 
