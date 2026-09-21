@@ -5,6 +5,7 @@ using UnityEngine;
 public class WumpusData : MonoBehaviour
 {
 
+    
     public int cellContents = 0; //who or what is in the cell
 
     public int col;
@@ -26,25 +27,26 @@ public class WumpusData : MonoBehaviour
         
     }
 
-    public void Expose(bool isExposed)
+    public void Expose()
     {
+              
+        //flip flag should I care
+        exposed = true;
 
-        if (isExposed)
-        {
-            exposed = true;
-
-            //set its contents
-            SetVisualContents();
-        }
+        //set its contents
+        SetVisualContents();
+      
 
 
     }
 
     private void SetVisualContents()
     {
+
         //Based on the index of the contents in data, we choose a material
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         renderer.material = mats[cellContents];
+        Debug.Log("cell contents " + cellContents);
     }
 
 

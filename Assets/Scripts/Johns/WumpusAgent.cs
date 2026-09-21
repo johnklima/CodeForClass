@@ -60,14 +60,15 @@ public class WumpusAgent : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.W))        { nextRow = row + 1; }
-        else if (Input.GetKeyDown(KeyCode.A))   { nextCol = col - 1; }
-        else if (Input.GetKeyDown(KeyCode.S))   { nextRow = row - 1; }
-        else if (Input.GetKeyDown(KeyCode.D))   { nextCol = col + 1; }
-
         //manual control
+        if (Input.GetKeyDown(KeyCode.W))        { nextRow = row + 1; }
+        else if (Input.GetKeyDown(KeyCode.A))   { nextCol = col + 1; }
+        else if (Input.GetKeyDown(KeyCode.S))   { nextRow = row - 1; }
+        else if (Input.GetKeyDown(KeyCode.D))   { nextCol = col - 1; }
+        
         Move();
-
+        //check my new cell
+        Check();
     }
 
     void Perceive()
@@ -270,14 +271,10 @@ public class WumpusAgent : MonoBehaviour
     void Move()
     {
         
-        
-        //set visited
-        world.SetCellVisited(row, col);
-
         //based on perception (or non AI move), move one cell
-        if (nextRow >= 0 && nextRow < 4)
+        if (nextRow >= 0 && nextRow < world.ROWS)
             row = nextRow;
-        if (nextCol >= 0 && nextCol < 4)
+        if (nextCol >= 0 && nextCol < world.COLS)
             col = nextCol;
 
         //move the pip

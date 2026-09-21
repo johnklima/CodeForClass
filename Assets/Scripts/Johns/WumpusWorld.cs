@@ -1,12 +1,10 @@
+
 using UnityEngine;
 
 public class WumpusWorld : MonoBehaviour
 {
-    private const int ROWS = 4;
-    private const int COLS = 4;
-
-
-    //should do a typedef enum but rather I shall do it in simplest terms
+    
+    //I should do a typedef enum but rather I shall do it in the simplest of terms
     public const int BAD_SUSHI = -1;
     public const int EMPTY = 0;
     public const int BREEZE = 1;
@@ -16,12 +14,19 @@ public class WumpusWorld : MonoBehaviour
     public const int WUMPUS = 5;
     public const int AGENT = 6;
 
+    public GameObject baseobject; //thing we instance
 
-    public GameObject baseobject;
-    private readonly GameObject[,] objs = new GameObject[ROWS, COLS];
+    //allocation bounds
+    public int ROWS = 4;
+    public int COLS = 4;
+    
+
+    //yeah I know, I just want to be sure I am fully pre-allocating
+    private GameObject[,] objs; 
 
     private void Awake()
     {
+        objs = new GameObject[ROWS, COLS];
         Build();
         StartGame();
     }
@@ -69,10 +74,11 @@ public class WumpusWorld : MonoBehaviour
         return objs[row, col].transform.position;
     }
 
+    //hardcode the initial "classic" wumpus world
     private void Build()
     {
-        for (var row = 0; row < ROWS; row++)
-        for (var col = 0; col < COLS; col++)
+        for (int row = 0; row < ROWS; row++)
+        for (int col = 0; col < COLS; col++)
         {
             objs[row, col] = Instantiate(baseobject, transform);
             var space = baseobject.transform.localScale.x;
@@ -99,10 +105,11 @@ public class WumpusWorld : MonoBehaviour
         var data = thisobj.GetComponent<WumpusData>();
 
         //apply hard rules as to where things are, based on the classic demo
-        // row 0 (1)
+
         if (data.row == 0 && data.col == 0)
         {
-            data.cellContents = AGENT;
+            //player starts at 0,0
+            data.cellContents = EMPTY;
             return;
         }
 
@@ -124,7 +131,6 @@ public class WumpusWorld : MonoBehaviour
             return;
         }
 
-        // row 1 (2)
         if (data.row == 1 && data.col == 0)
         {
             data.cellContents = STENCH;
@@ -148,8 +154,7 @@ public class WumpusWorld : MonoBehaviour
             data.cellContents = EMPTY;
             return;
         }
-
-        // row 2 (3)
+             
         if (data.row == 2 && data.col == 0)
         {
             data.cellContents = WUMPUS;
@@ -174,7 +179,6 @@ public class WumpusWorld : MonoBehaviour
             return;
         }
 
-        // row 3 (4)
         if (data.row == 3 && data.col == 0)
         {
             data.cellContents = STENCH;
@@ -198,32 +202,31 @@ public class WumpusWorld : MonoBehaviour
 
     private void StartGame()
     {
-        //Activate player
-        objs[0, 0].GetComponent<WumpusData>().Expose(true);
+        //Activate player cell
+        objs[0, 0].GetComponent<WumpusData>().Expose();
 
 
-        //if we want to debug
-        // if (false)
-        // {
-        //     for (int row = 0; row < ROWS; row++)
-        //     {
-        //         for (int col = 0; col < COLS; col++)
-        //         {
-        //             objs[row, col].GetComponent<WumpusData>().Expose(true);
-        //
-        //         }
-        //     }
-        //
-        // }
+        //if we want to debug mats
+        if (true)
+        {
+             for (int row = 0; row < ROWS; row++)
+             {
+                 for (int col = 0; col < COLS; col++)
+                 {
+                     objs[row, col].GetComponent<WumpusData>().Expose();
+        
+                 }
+             }
+        
+        }
+
+
     }
 
     public void ExposeCell(int row, int col)
     {
-        objs[row, col].GetComponent<WumpusData>().Expose(true);
+        objs[row, col].GetComponent<WumpusData>().Expose();
     }
 
-    public void SetCellVisited(int row, int col)
-    {
-        objs[row, col].GetComponent<WumpusData>().cellContents = AGENT;
-    }
+
 }
