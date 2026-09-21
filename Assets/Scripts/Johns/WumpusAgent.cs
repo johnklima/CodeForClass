@@ -27,7 +27,7 @@ public class WumpusAgent : MonoBehaviour
     public int iters = 0;  //iterations, public, just so I can kep an eye on it.
 
     public bool gameOver = false;
-
+    public bool AI = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,13 +41,12 @@ public class WumpusAgent : MonoBehaviour
     {
         if(gameOver)
         {
-
             //fanfare
             return;
-
         }
 
-        if(Input.GetKeyDown(KeyCode.W))
+        //percieve
+        if(Input.GetKeyDown(KeyCode.P) && AI)
         {
             //iterate one move/cycle
             Perceive();
@@ -57,7 +56,18 @@ public class WumpusAgent : MonoBehaviour
 
             //check my new cell
             Check();
+
+            return;
         }
+
+        if (Input.GetKeyDown(KeyCode.W))        { nextRow = row + 1; }
+        else if (Input.GetKeyDown(KeyCode.A))   { nextCol = col - 1; }
+        else if (Input.GetKeyDown(KeyCode.S))   { nextRow = row - 1; }
+        else if (Input.GetKeyDown(KeyCode.D))   { nextCol = col + 1; }
+
+        //manual control
+        Move();
+
     }
 
     void Perceive()
@@ -260,12 +270,15 @@ public class WumpusAgent : MonoBehaviour
     void Move()
     {
         
+        
         //set visited
         world.SetCellVisited(row, col);
-        
-        //based on perception, move one cell
-        row = nextRow;
-        col = nextCol;
+
+        //based on perception (or non AI move), move one cell
+        if (nextRow >= 0 && nextRow < 4)
+            row = nextRow;
+        if (nextCol >= 0 && nextCol < 4)
+            col = nextCol;
 
         //move the pip
         pip.position = world.GetCellPosition(row, col) + Vector3.up;

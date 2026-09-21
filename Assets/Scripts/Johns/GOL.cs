@@ -10,7 +10,7 @@ public class GOL : MonoBehaviour
 
     // [SerializeField]  means it's private, but you can muck with it in the inspector
     [SerializeField]  GameObject baseobject;
-    [SerializeField]  float interval = 0.5f;
+    [SerializeField]  float interval = 0.5f;  //time interval
 
     const int MAX_ROWS = 32;        //size of the grid
     const int MAX_COLUMNS = 32;
@@ -21,7 +21,7 @@ public class GOL : MonoBehaviour
     //2d array of gameobjects to show
     GameObject[,] objs;
 
-    float timer = -1; //the usual interval to see the generations
+    float timer = -1; //the usual timer to see the generations
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +49,7 @@ public class GOL : MonoBehaviour
                 objs[row, col].transform.position = pos;
 
                 //find the ground
-                int layerMask = 1 << 6; //ground
+                int layerMask = 1 << 8; //ground
                 RaycastHit hit;
                 
                 // Does the ray intersect any surface in the layer mask
@@ -60,7 +60,19 @@ public class GOL : MonoBehaviour
                     float y = hit.point.y;
                     float z = objs[row, col].transform.position.z;
 
-                   //apply this position to hug a surface
+                    //apply this rotation to hug a surface
+                    Quaternion rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                    objs[row, col].transform.rotation = rotation;
+
+                    // or this to preserve original forward direction for steering
+                    objs[row, col].transform.rotation = Quaternion.LookRotation(transform.forward, hit.normal);
+
+                    //or this one, hrm what's the difference?
+                    //rotate object so its 'up' aligns with the hit normal
+                    transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+
+                    //apply this position to hug a surface
+                    objs[row, col].transform.position = new Vector3(x, y, z);
                 }
 
                 //init cells
