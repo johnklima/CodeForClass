@@ -286,7 +286,7 @@ MonoBehaviour:
   nextRow: 0
   iters: 0
   gameOver: 0
-  AI: 0
+  AI: 1
 --- !u!65 &827189178
 BoxCollider:
   m_ObjectHideFlags: 0
