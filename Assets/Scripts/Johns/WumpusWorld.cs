@@ -207,7 +207,7 @@ public class WumpusWorld : MonoBehaviour
 
 
         //if we want to debug mats
-        if (true)
+        if (false)
         {
              for (int row = 0; row < ROWS; row++)
              {

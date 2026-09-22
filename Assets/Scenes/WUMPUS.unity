@@ -284,7 +284,6 @@ MonoBehaviour:
   pip: {fileID: 827189181}
   nextCol: 0
   nextRow: 0
-  iters: 0
   gameOver: 0
   AI: 1
 --- !u!65 &827189178

@@ -24,7 +24,7 @@ public class WumpusAgent : MonoBehaviour
     public int nextCol;
     public int nextRow;
 
-    public int iters = 0;  //iterations, public, just so I can kep an eye on it.
+    private int iters = 0;  //iterations
 
     public bool gameOver = false;
     public bool AI = false;
