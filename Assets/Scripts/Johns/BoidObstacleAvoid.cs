@@ -21,7 +21,7 @@ public class BoidObstacleAvoid : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         // Bit shift the index of the layer to get a bit mask
-        int layerMask = 1 << 6; //ground
+        int layerMask = 1 << 8; //ground
 
         bool didHit = false;
         RaycastHit hit;
