@@ -144,7 +144,7 @@ public class Boids : MonoBehaviour
 
         steer /= sibs; //center of mass is the average position of all        
 
-        steer -= transform.position;
+        steer -= transform.position;  //where I want to be, where I am
 
        
         steer.Normalize();

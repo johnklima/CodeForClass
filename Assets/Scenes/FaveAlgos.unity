@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 106121995}
   - component: {fileID: 106121994}
   - component: {fileID: 106121993}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -943,13 +943,13 @@ GameObject:
   - component: {fileID: 328343737}
   - component: {fileID: 328343736}
   - component: {fileID: 328343735}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Obstacle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &328343735
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1186,7 +1186,7 @@ GameObject:
   - component: {fileID: 437299247}
   - component: {fileID: 437299246}
   - component: {fileID: 437299245}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1326,7 +1326,7 @@ GameObject:
   - component: {fileID: 474885351}
   - component: {fileID: 474885350}
   - component: {fileID: 474885349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1596,7 +1596,7 @@ GameObject:
   - component: {fileID: 556430368}
   - component: {fileID: 556430367}
   - component: {fileID: 556430366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1889,7 +1889,7 @@ GameObject:
   - component: {fileID: 630753492}
   - component: {fileID: 630753491}
   - component: {fileID: 630753490}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2029,7 +2029,7 @@ GameObject:
   - component: {fileID: 670677664}
   - component: {fileID: 670677663}
   - component: {fileID: 670677662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2801,13 +2801,13 @@ GameObject:
   - component: {fileID: 854133452}
   - component: {fileID: 854133451}
   - component: {fileID: 854133450}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Obstacle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &854133450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3026,7 +3026,7 @@ GameObject:
   - component: {fileID: 878153766}
   - component: {fileID: 878153765}
   - component: {fileID: 878153764}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3606,7 +3606,7 @@ GameObject:
   - component: {fileID: 1038017781}
   - component: {fileID: 1038017780}
   - component: {fileID: 1038017779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4090,7 +4090,7 @@ GameObject:
   - component: {fileID: 1205879247}
   - component: {fileID: 1205879246}
   - component: {fileID: 1205879245}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4230,7 +4230,7 @@ GameObject:
   - component: {fileID: 1254875832}
   - component: {fileID: 1254875831}
   - component: {fileID: 1254875830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4523,7 +4523,7 @@ GameObject:
   - component: {fileID: 1341661164}
   - component: {fileID: 1341661163}
   - component: {fileID: 1341661162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5292,7 +5292,7 @@ GameObject:
   - component: {fileID: 1470899106}
   - component: {fileID: 1470899105}
   - component: {fileID: 1470899104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5635,13 +5635,13 @@ GameObject:
   - component: {fileID: 1593718982}
   - component: {fileID: 1593718981}
   - component: {fileID: 1593718980}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Obstacle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1593718980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5748,7 +5748,7 @@ GameObject:
   - component: {fileID: 1627168603}
   - component: {fileID: 1627168602}
   - component: {fileID: 1627168605}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5887,13 +5887,13 @@ GameObject:
   - component: {fileID: 1654651560}
   - component: {fileID: 1654651559}
   - component: {fileID: 1654651558}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Obstacle (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1654651558
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6278,7 +6278,7 @@ GameObject:
   - component: {fileID: 1734402582}
   - component: {fileID: 1734402581}
   - component: {fileID: 1734402580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6571,7 +6571,7 @@ GameObject:
   - component: {fileID: 1759346964}
   - component: {fileID: 1759346963}
   - component: {fileID: 1759346962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6823,7 +6823,7 @@ GameObject:
   - component: {fileID: 1820390178}
   - component: {fileID: 1820390177}
   - component: {fileID: 1820390176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boid (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
