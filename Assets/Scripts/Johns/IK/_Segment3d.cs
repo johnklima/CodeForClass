@@ -46,6 +46,7 @@ public class _Segment3d : MonoBehaviour
     {
         transform.LookAt(target);
 
+        //prevent twist? not sure but here is the place to try.
         var rot = new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
         transform.rotation = Quaternion.Euler(rot);
     }
